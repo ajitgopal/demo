@@ -1,6 +1,6 @@
 <?php
 
-fdfdfdfd
+test fkgdkgdkgkdgdkgk
 
 define('UPLOAD_DIR', 'C:\\xampp\htdocs\upload\files');
 //define('UPLOAD_DIR', '/var/uploaded_files/');
