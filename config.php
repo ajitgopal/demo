@@ -6,16 +6,20 @@ session_start();
 $username = "";
 $email    = "";
 $errors = array(); 
+//Code added to define connection strings for connecting to database
 
 // connect to the database
 define('DB_SERVER', 'localhost');
-   define('DB_USERNAME', 'PuneethReddy');
+   define('DB_USERNAME', 'anair');
    define('DB_PASSWORD', '');
-   define('DB_DATABASE', 'ecommerece');
+   define('DB_DATABASE', 'owansp');
    $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 if (!$db) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
+//Code added to define connection strings for connecting to database
+
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -31,7 +35,9 @@ if (isset($_POST['reg_user'])) {
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
   if ($password_1 != $password_2) {
+	//Apply Code Commenting here
 	array_push($errors, "The two passwords do not match");
+	exit();
   }
 
   // first check the database to make sure 
@@ -63,14 +69,14 @@ if (isset($_POST['reg_user'])) {
   }
 }
 if (isset($_POST['login_user'])) {
-  $username = mysqli_real_escape_string($db, $_POST['email']);
+  $username = mysqli_real_escape_string($db, $_POST['emailaddress']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
   if (empty($username)) {
   	array_push($errors, "email is required");
   }
   if (empty($password)) {
-  	array_push($errors, "Password is required");
+  	array_push($errors, "Password is required Kindly enter");
   }
 
   if (count($errors) == 0) {
